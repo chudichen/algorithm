@@ -13,7 +13,6 @@ class ListNode:
 
 
 class Solution:
-
     def reverse_list(self, head: ListNode) -> ListNode:
         before = None
         while head:
