@@ -1,9 +1,12 @@
 # -*- coding: utf-8 -*-
+"""
+经典的快速排序算法，利用前后指针确定基准值的位置，并使用遍历
+对剩余的元素进行排序,虽然思路简单，但是要注意边界的处理。
+"""
 
 
 # 快速排序
 class Solution:
-
     def quick_sort(self, arr, left, right):
         if left <= right:
             # 初始化标准值，左指针，右指针
