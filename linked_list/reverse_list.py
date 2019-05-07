@@ -1,7 +1,9 @@
 # -*- coding: utf-8 -*-
 """
-https://leetcode.com/explore/featured/card/recursion-i/251/scenario-i-recurrence-relation/2378/
+反转链表
+
 解题思路将使用虚拟before指针，将head的值依次传递给before，最终形成反转链表。
+https://leetcode.com/explore/featured/card/recursion-i/251/scenario-i-recurrence-relation/2378/
 """
 
 

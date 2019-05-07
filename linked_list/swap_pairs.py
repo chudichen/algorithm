@@ -1,7 +1,9 @@
 # -*- coding: utf-8 -*-
 """
-https://leetcode.com/explore/learn/card/recursion-i/250/principle-of-recursion/1681/
+反转相邻的两对
+
 解题思路创建三个临时指针，将pointer1和pointer2交换并将pointer3放入递归
+https://leetcode.com/explore/learn/card/recursion-i/250/principle-of-recursion/1681/
 """
 
 
