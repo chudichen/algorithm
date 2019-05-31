@@ -8,6 +8,9 @@ https://leetcode.com/problems/construct-binary-tree-from-preorder-and-inorder-tr
 
 
 # Definition for a binary tree node.
+from typing import List
+
+
 class TreeNode:
     def __init__(self, x):
         self.val = x
@@ -17,16 +20,19 @@ class TreeNode:
 
 class Solution:
     def build_tree(self, preorder: List[int], inorder: List[int]) -> TreeNode:
-    	def buildNode(i, j):
-    		if i == j:
-    			return None
-    		parent = TreeNode(preorder.pop(0))
-    		split_index = inorder.index(parent.val)
-    		parent.left(i, split_index)
-    		parent.right(split_index + 1, j)
-    		return parent
-		return buildNode(0, len(preorder))
+        def buildNode(i, j):
+            if i == j:
+                return None
+            parent = TreeNode(preorder.pop(0))
+            split_index = inorder.index(parent.val)
+            parent.left = buildNode(i, split_index)
+            parent.right = buildNode(split_index + 1, j)
+            return parent
+        return buildNode(0, len(preorder))
+
 
 if __name__ == '__main__':
     solution = Solution()
-    solution.build_tree([1], [2])
+    preorder = [3, 9, 20, 15, 7]
+    inorder = [9, 3, 15, 20, 7]
+    solution.build_tree(preorder, inorder)
