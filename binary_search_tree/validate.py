@@ -20,15 +20,24 @@ class TreeNode:
 
 class Solution:
     def isValidBST(self, root: TreeNode) -> bool:
-        def inorder(root: TreeNode) -> List[int]:
-            if not root:
-                return []
-            return inorder(root.left) + [root.val] + inorder(root.right)
-        res = inorder(root)
-        i = 0
-        for j in range(1, len(res)):
-            if res[i] >= res[j]:
+        stack, inorder = [], float('-inf')
+        while stack or root:
+            while root:
+                stack.append(root)
+                root = root.left
+            root = stack.pop()
+            if root.val <= inorder:
                 return False
-            i += 1
-            j += 1
+            inorder = root.val
+            root = root.right
         return True
+
+
+if __name__ == '__main__':
+    root = TreeNode(5)
+    root.left = TreeNode(1)
+    root.right = TreeNode(6)
+    # root.right.left = TreeNode(3)
+    root.right.right = TreeNode(7)
+    res = Solution().isValidBST(root)
+    print(res)
